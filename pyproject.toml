@@ -1,0 +1,19 @@
+[project]
+name = "shiv-example"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Joerg Mueller", email = "JoergM@users.noreply.github.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "click>=8.2.1",
+]
+
+[project.scripts]
+shiv-example = "shiv_example:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
