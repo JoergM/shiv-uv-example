@@ -36,3 +36,29 @@ As you might have guessed:
 
 Inside the package is a small code snippet using click for parsing an argument. It is there to 
 demonstrate the use of an external package (click). 
+
+### Package structure
+
+It also imports a second internal module to demonstrate, how to structure this package. 
+
+Some notes on that:
+
+- local modules are imported using the relative syntax `import .modname`
+- The console script entry point needs to be defined in pyproject.toml:
+ 
+```aiignore
+[project.scripts]
+shiv-example = "shiv_example:main"
+```
+
+- the name of this entry-point (shiv-example) also needs to be set in the build.sh
+
+### Running in Dev-Mode
+
+To start the command in dev mode use:
+
+```aiignore
+uv run shiv-example
+```
+
+uv knows how to deal with the dependencies for the defined console entry point.
