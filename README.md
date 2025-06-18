@@ -52,6 +52,7 @@ shiv-example = "shiv_example:main"
 ```
 
 - the name of this entry-point (shiv-example) also needs to be set in the build.sh
+- !important the module that the main function is in should not be called main. This will lead to an error in shiv.
 
 ### Running in Dev-Mode
 
