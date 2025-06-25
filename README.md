@@ -1,4 +1,4 @@
-## shiv-Example
+## shiv-uv-Example
 
 This Repo demonstrates how to build an executable from an uv project using shiv. Use it as a template to create 
 your own projects that should generate a single binary based on a python project.
