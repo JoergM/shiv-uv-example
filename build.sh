@@ -1,7 +1,7 @@
 # Variables to change to adapt to your Repo
 BINARY_NAME=shiv-example
 
-#always clean the dist directory upfront
+#clean the dist directory upfront
 rm -rf ./dist
 
 uv build --wheel

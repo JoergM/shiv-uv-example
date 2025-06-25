@@ -1,6 +1,7 @@
 ## shiv-Example
 
-This Repo demonstrates how to build an executable from an uv project using shiv.
+This Repo demonstrates how to build an executable from an uv project using shiv. Use it as a template to create 
+your own projects that should generate a single binary based on a python project.
 
 ## Major Steps
 
@@ -19,7 +20,8 @@ uv init --package
 ### The build.sh
 
 The build.sh file is used to build the package and create the binary using shiv. To use it in your 
-Repo just copy it and change the variables on to to match your binary name and main function.
+Repo just copy it and change the variable on to to match your binary name which is defined in your 
+pyproject.toml under [project.scripts].
 
 It uses a not perfect "ls trick" to get the wheel name. I didn't find a better way to get the wheel name in a 
 way that works across different versions.
@@ -37,13 +39,15 @@ As you might have guessed:
 Inside the package is a small code snippet using click for parsing an argument. It is there to 
 demonstrate the use of an external package (click). 
 
+Replace it with whatever code you would like. 
+
 ### Package structure
 
 It also imports a second internal module to demonstrate, how to structure this package. 
 
 Some notes on that:
 
-- local modules are imported using the relative syntax `import .modname`
+- local modules are imported using the relative syntax `import .modname` (as demonstrated using mod.py in cli.py)
 - The console script entry point needs to be defined in pyproject.toml:
  
 ```aiignore
@@ -51,12 +55,12 @@ Some notes on that:
 shiv-example = "shiv_example:main"
 ```
 
-- the name of this entry-point (shiv-example) also needs to be set in the build.sh
+- don't forget to set the variable BINARY_NAME in build.sh to the script name (shiv-example in this case)
 - !important the module that the main function is in should not be called main. This will lead to an error in shiv.
 
 ### Running in Dev-Mode
 
-To start the command in dev mode use:
+To start the command in dev mode without building it with build.sh use:
 
 ```aiignore
 uv run shiv-example
